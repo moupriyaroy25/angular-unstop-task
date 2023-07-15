@@ -1,0 +1,19 @@
+<h2>Train Coach</h2>
+<table>
+  <ng-container *ngFor="let row of coach; let rowIndex = index">
+    <tr>
+      <ng-container *ngFor="let seat of row; let colIndex = index">
+        <td
+          [ngClass]="{
+            available: seat === 'O',
+            booked: seat === 'X',
+            selected: seat === 'S'
+          }"
+          (click)="reserveSeat(rowIndex, colIndex)"
+        >
+          {{ rowIndex * 7 + colIndex + 1 }}
+        </td>
+      </ng-container>
+    </tr>
+  </ng-container>
+</table>
